@@ -1,0 +1,25 @@
+{
+  "name": "@packages/utils",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "date-fns": "^4.1.0",
+    "phone": "^3.1.51",
+    "tailwind-merge": "^2.5.4"
+  },
+  "exports": {
+    "./cn": "./src/cn.ts",
+    "./date": "./src/date.ts",
+    "./number": "./src/number.ts",
+    "./phone": "./src/phone.ts",
+    "./text": "./src/text.ts",
+    "./validation": "./src/validation.ts"
+  }
+}

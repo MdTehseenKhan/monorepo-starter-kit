@@ -1,0 +1,18 @@
+{
+  "name": "@packages/logger",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "scripts": {
+    "clean": "rm -rf .turbo node_modules",
+    "lint": "biome check .",
+    "format": "biome format --write .",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "pino": "^9.4.0"
+  },
+  "devDependencies": {
+    "@tooling/typescript": "workspace:*"
+  }
+}
