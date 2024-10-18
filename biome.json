@@ -24,6 +24,7 @@
       "style": {
         "useConst": "off",
         "useTemplate": "off",
+        "noParameterAssign": "warn",
         "noNonNullAssertion": "off",
         "useExponentiationOperator": "off"
       },

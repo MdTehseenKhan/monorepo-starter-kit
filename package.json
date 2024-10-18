@@ -1,11 +1,7 @@
 {
-  "name": "monorepo-starter-kit",
+  "name": "starter",
   "private": true,
-  "workspaces": [
-    "apps/*",
-    "packages/*",
-    "tooling/*"
-  ],
+  "type": "module",
   "scripts": {
     "clean": "git clean -xdf node_modules",
     "clean:workspaces": "turbo clean",
@@ -17,10 +13,16 @@
     "lint": "turbo lint",
     "lint:repo": "pnpm dlx sherif@latest",
     "lint:repo:fix": "pnpm dlx sherif@latest --fix",
-    "typecheck": "turbo typecheck"
+    "typecheck": "turbo typecheck",
+    "lint-staged": "lint-staged",
+    "prepare": "husky"
   },
   "devDependencies": {
+    "@tooling/typescript": "workspace:*",
     "@biomejs/biome": "^1.9.3",
+    "husky": "^9.1.6",
+    "lint-staged": "^15.2.10",
+    "tsc-files": "^1.1.4",
     "turbo": "^2.1.3",
     "typescript": "^5.4.5"
   },

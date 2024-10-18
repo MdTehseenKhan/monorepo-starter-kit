@@ -2,17 +2,35 @@
   "$schema": "https://turbo.build/schema.json",
   "ui": "tui",
   "tasks": {
+    "topo": {
+      "dependsOn": ["^topo"]
+    },
     "build": {
+      "env": [
+        "SUPABASE_SERVICE_KEY",
+        "SUPABASE_API_KEY",
+        "RESEND_API_KEY",
+        "UPSTASH_REDIS_REST_URL",
+        "UPSTASH_REDIS_REST_TOKEN"
+      ],
+      "inputs": ["$TURBO_DEFAULT$", ".env"],
       "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": [".next/**", "!.next/cache/**"]
+      "outputs": [".next/**", "!.next/cache/**", "next-env.d.ts", ".expo/**"]
+    },
+    "clean": {
+      "cache": false
     },
     "lint": {
-      "dependsOn": ["^lint"]
+      "dependsOn": ["^topo"]
     },
     "dev": {
+      "inputs": ["$TURBO_DEFAULT$", ".env"],
       "cache": false,
       "persistent": true
+    },
+    "typecheck": {
+      "dependsOn": ["^topo"],
+      "outputs": ["node_modules/.cache/tsbuildinfo.json"]
     }
   }
 }
