@@ -2,7 +2,7 @@
   "name": "@packages/ui",
   "version": "0.0.0",
   "private": true,
-  "types": "module",
+  "type": "module",
   "sideEffects": false,
   "scripts": {
     "clean": "rm -rf .turbo node_modules",

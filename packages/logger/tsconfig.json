@@ -1,8 +1,0 @@
-{
-  "extends": "@tooling/typescript/base",
-  "compilerOptions": {
-    "baseUrl": "."
-  },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
-}
