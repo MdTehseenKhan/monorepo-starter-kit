@@ -1,7 +1,8 @@
 {
-  "name": "@packages/utils",
+  "name": "@packages/upstash",
   "version": "0.0.0",
   "private": true,
+  "main": "./src/index.ts",
   "scripts": {
     "clean": "rm -rf .turbo node_modules",
     "lint": "biome check .",
@@ -9,18 +10,12 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "clsx": "^2.1.1",
-    "date-fns": "^4.1.0",
-    "phone": "^3.1.51",
-    "pino": "^9.4.0",
-    "tailwind-merge": "^2.5.4"
+    "@upstash/ratelimit": "^2.0.3",
+    "@upstash/redis": "^1.34.3",
+    "server-only": "^0.0.1"
   },
   "devDependencies": {
     "@tooling/typescript": "workspace:*",
     "@types/node": "^20"
-  },
-  "exports": {
-    "./cn": "./src/cn.ts",
-    "./logger": "./src/logger.ts"
   }
 }
