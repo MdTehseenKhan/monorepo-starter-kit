@@ -10,19 +10,17 @@ const buildBiomeCommand = (filenames) => {
 
 const builTypeCommand = (filenames) => {
   // tsc-files: A tiny tool to run `tsc` on specific files without ignoring `tsconfig.json`.
-  return `tsc-files --noEmit --skipLibCheck ${getStagedFiles(filenames).join(
-    ' '
-  )}`;
+  return `tsc-files --noEmit --skipLibCheck ${getStagedFiles(filenames).join(' ')}`;
 };
 
 const buildLintCommand = (filenames) => {
-  return `biome check ${getStagedFiles(filenames).join(' ')}`;
+  return `biome lint --write ${getStagedFiles(filenames).join(' ')}`;
 };
 
 const lintStagedConfig = {
+  '**/*.{js,jsx,ts,tsx,json,css,scss,md}': buildBiomeCommand,
   '**/*.{js,jsx,ts,tsx}': buildLintCommand,
   '**/*.{ts,tsx}': builTypeCommand,
-  '**/*.{js,jsx,ts,tsx,json,css,scss,md}': buildBiomeCommand,
 };
 
 export default lintStagedConfig;
