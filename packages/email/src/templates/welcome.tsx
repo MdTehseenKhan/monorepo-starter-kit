@@ -1,21 +1,23 @@
+import React from 'react';
+
 import { Text, render } from '@react-email/components';
 
-import { EmailButton, EmailContainer, EmailLink, EmailParagraph, EmailStructure } from './components/email-components';
+import { EmailButton, EmailContainer, EmailLink, EmailParagraph, EmailStructure } from '../components/email-components';
+import { EmailHeader } from '../components/email-header';
+import { WelcomeEmailFooter } from '../components/welcome-email-footer';
+import { EmailConfig } from '../email.config';
 
-interface WelcomeEmailParams {
-  productName: string;
-  supportEmail: string;
-  loginPageURL: string;
-  marketingLinks: { title: string; href: string }[];
-}
+export default function WelcomeEmail() {
+  const { productName, supportEmail, paths } = EmailConfig;
 
-export default function WelcomeEmail(params: WelcomeEmailParams) {
-  const { productName, supportEmail, loginPageURL } = params;
   const previewText = `Welcome to ${productName}!`;
+  const loginPageURL = paths.auth.signIn;
 
   return (
     <EmailStructure previewText={previewText}>
       <EmailContainer>
+        <EmailHeader />
+
         <Text className="text-3xl font-bold text-gray-950">{previewText}</Text>
 
         <EmailParagraph>
@@ -37,11 +39,13 @@ export default function WelcomeEmail(params: WelcomeEmailParams) {
         <EmailParagraph>
           Thank you for joining {productName}. We look forward to supporting you on your journey!
         </EmailParagraph>
+
+        <WelcomeEmailFooter />
       </EmailContainer>
     </EmailStructure>
   );
 }
 
-export function renderWelcomeEmail(params: WelcomeEmailParams) {
-  return render(<WelcomeEmail {...params} />);
+export function renderWelcomeEmail() {
+  return render(<WelcomeEmail />);
 }

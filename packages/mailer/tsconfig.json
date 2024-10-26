@@ -1,6 +1,8 @@
 {
-  "extends": "@tooling/typescript/nextjs.json",
+  "extends": "@tooling/typescript/base.json",
   "compilerOptions": {
+    "module": "ES2022",
+    "moduleResolution": "Bundler",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]

@@ -1,11 +1,13 @@
+// biome-ignore lint/style/useImportType: To prevent error in export command
+import React from 'react';
+
 import { Body, Container, Head, Html, Link, Tailwind, Text } from '@react-email/components';
-import type { PropsWithChildren } from 'react';
 
 const fontStyle = {
   fontFamily: '-apple-system,BlinkMacSystemFont,Verdana,Roboto,Oxygen-Sans,Ubuntu,Cantarell,sans-serif',
 };
 
-export const EmailStructure = (props: PropsWithChildren<{ previewText: string }>) => {
+export const EmailStructure = (props: React.PropsWithChildren<{ previewText: string }>) => {
   return (
     <Html>
       <Head />
@@ -20,7 +22,7 @@ export const EmailStructure = (props: PropsWithChildren<{ previewText: string }>
   );
 };
 
-export const EmailContainer = ({ children }: PropsWithChildren) => {
+export const EmailContainer = ({ children }: React.PropsWithChildren) => {
   return (
     <Container className="mx-auto my-20 w-[465px] rounded-lg border border-solid border-gray-200 bg-white p-5">
       {children}
@@ -28,11 +30,11 @@ export const EmailContainer = ({ children }: PropsWithChildren) => {
   );
 };
 
-export const EmailParagraph = ({ children }: PropsWithChildren) => {
+export const EmailParagraph = ({ children }: React.PropsWithChildren) => {
   return <Text className="text-gray-700 text-sm">{children}</Text>;
 };
 
-export const EmailLink = ({ href, children }: PropsWithChildren<{ href: string }>) => {
+export const EmailLink = ({ href, children }: React.PropsWithChildren<{ href: string }>) => {
   return (
     <Link href={href} className="text-black underline underline-offset-2 font-semibold">
       {children}
@@ -40,7 +42,7 @@ export const EmailLink = ({ href, children }: PropsWithChildren<{ href: string }
   );
 };
 
-export const EmailButton = ({ href, children }: PropsWithChildren<{ href: string }>) => {
+export const EmailButton = ({ href, children }: React.PropsWithChildren<{ href: string }>) => {
   return (
     <Link
       href={href}

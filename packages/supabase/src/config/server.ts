@@ -6,22 +6,16 @@ import { createServerClient } from '@supabase/ssr';
 import { cookies } from 'next/headers';
 import { cache } from 'react';
 
-export const getSupabaseServerComponentClient = cache(
-  (
-    params = {
-      admin: false,
-    }
-  ) => {
-    const { url, key } = getSupabaseKeys(params);
+export const getSupabaseServerClient = cache((params = { admin: false }) => {
+  const { url, key } = getSupabaseKeys(params);
 
-    return createServerClient<Database>(url, key, {
-      auth: {
-        persistSession: false,
-      },
-      cookies: getCookiesStrategy(),
-    });
-  }
-);
+  return createServerClient<Database>(url, key, {
+    auth: {
+      persistSession: false,
+    },
+    cookies: getCookiesStrategy(),
+  });
+});
 
 function getCookiesStrategy() {
   const cookieStore = cookies();
@@ -29,6 +23,11 @@ function getCookiesStrategy() {
   return {
     getAll: () => {
       return cookieStore.getAll();
+    },
+    setAll(cookiesToSet) {
+      for (const { name, value, options } of cookiesToSet) {
+        cookieStore.set(name, value, options);
+      }
     },
   } as CookieMethodsServer;
 }

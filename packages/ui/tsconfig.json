@@ -1,5 +1,5 @@
 {
-  "extends": "@tooling/typescript/react-library",
+  "extends": "@tooling/typescript/react-library.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

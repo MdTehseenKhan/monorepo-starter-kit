@@ -8,19 +8,29 @@
     "format": "biome format --write .",
     "typecheck": "tsc --noEmit"
   },
+  "peerDependencies": {
+    "@types/node": ">=20.0.0",
+    "next": ">=14.0.0"
+  },
   "dependencies": {
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
-    "phone": "^3.1.51",
     "pino": "^9.4.0",
+    "server-only": "^0.0.1",
     "tailwind-merge": "^2.5.4"
   },
   "devDependencies": {
-    "@tooling/typescript": "workspace:*",
-    "@types/node": "^20"
+    "typescript": "^5.6.3"
   },
   "exports": {
     "./cn": "./src/cn.ts",
-    "./logger": "./src/logger.ts"
+    "./date": "./src/date.ts",
+    "./debounce": "./src/debounce.ts",
+    "./is-browser": "./src/is-browser.ts",
+    "./http": "./src/http/index.ts",
+    "./logger": "./src/logger.ts",
+    "./number": "./src/number.ts",
+    "./text": "./src/text.ts",
+    "./validation": "./src/validation.ts"
   }
 }

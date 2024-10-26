@@ -15,8 +15,6 @@ const EmailAddressesSchema = z.union([EmailAddressSchema, z.array(EmailAddressSc
 
 const BaseEmailSchema = z.object({
   to: EmailAddressesSchema,
-  // this is not necessarily formatted
-  // as an email so we type it loosely
   from: z.string().min(1),
   subject: z.string(),
   contentType: z.enum(['text', 'html', 'react']),

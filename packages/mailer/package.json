@@ -1,5 +1,5 @@
 {
-  "name": "@packages/upstash",
+  "name": "@packages/mailer",
   "version": "0.0.0",
   "private": true,
   "main": "./src/index.ts",
@@ -10,14 +10,21 @@
     "typecheck": "tsc --noEmit"
   },
   "peerDependencies": {
+    "@types/react": ">=18.0.0",
     "@types/node": ">=20.0.0"
   },
   "dependencies": {
-    "@upstash/ratelimit": "^2.0.3",
-    "@upstash/redis": "^1.34.3",
-    "server-only": "^0.0.1"
+    "resend": "^4.0.0",
+    "server-only": "^0.0.1",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@types/nodemailer": "^6.4.16",
+    "nodemailer": "^6.9.15",
     "typescript": "^5.6.3"
+  },
+  "exports": {
+    ".": "./src/index.ts",
+    "./schema": "./src/schema.ts"
   }
 }

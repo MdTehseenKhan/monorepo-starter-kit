@@ -8,29 +8,29 @@
     "format": "biome format --write .",
     "typecheck": "tsc --noEmit"
   },
+  "peerDependencies": {
+    "@types/react": ">=18.0.0",
+    "@types/node": ">=20.0.0",
+    "react": ">=18.0.0",
+    "next": ">=14.0.0"
+  },
   "dependencies": {
     "@supabase/supabase-js": "^2.45.3",
     "@supabase/ssr": "^0.5.1",
-    "next": "14.2.6",
-    "react": "^18.3.1",
     "server-only": "^0.0.1",
     "supabase": "^1.191.3",
     "tiny-invariant": "^1.3.3"
   },
   "devDependencies": {
-    "@tooling/typescript": "workspace:*",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "typescript": "^5.5.4"
+    "typescript": "^5.6.3"
   },
   "exports": {
     "./server": "./src/config/server.ts",
     "./client": "./src/config/client.ts",
-    "./action": "./src/config/action.ts",
     "./middleware": "./src/config/middleware.ts",
-    "./route-handler": "./src/config/route-handler.ts",
     "./mutations": "./src/mutations/index.ts",
     "./queries": "./src/queries/index.ts",
+    "./constants": "./src/constants.ts",
     "./types": "./src/types/index.ts"
   }
 }
