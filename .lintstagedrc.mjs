@@ -1,26 +1,5 @@
-import { relative } from 'node:path';
-
-const getStagedFiles = (filenames) => {
-  return filenames.map((f) => relative(process.cwd(), f));
+export default {
+  '**/*.{ts,tsx}': 'tsc-files --noEmit --skipLibCheck',
+  '**/*.{js,jsx,ts,tsx}': 'biome lint --fix',
+  '**/*.{js,jsx,ts,tsx,json,css,scss,md}': 'biome format --write',
 };
-
-const buildBiomeCommand = (filenames) => {
-  return `biome format --write ${getStagedFiles(filenames).join(' ')}`;
-};
-
-const builTypeCommand = (filenames) => {
-  // tsc-files: A tiny tool to run `tsc` on specific files without ignoring `tsconfig.json`.
-  return `tsc-files --noEmit --skipLibCheck ${getStagedFiles(filenames).join(' ')}`;
-};
-
-const buildLintCommand = (filenames) => {
-  return `biome lint --write ${getStagedFiles(filenames).join(' ')}`;
-};
-
-const lintStagedConfig = {
-  '**/*.{js,jsx,ts,tsx,json,css,scss,md}': buildBiomeCommand,
-  '**/*.{js,jsx,ts,tsx}': buildLintCommand,
-  '**/*.{ts,tsx}': builTypeCommand,
-};
-
-export default lintStagedConfig;

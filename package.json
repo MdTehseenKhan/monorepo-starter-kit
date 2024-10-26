@@ -14,17 +14,27 @@
     "lint:repo": "pnpm dlx sherif@latest",
     "lint:repo:fix": "pnpm dlx sherif@latest --fix",
     "typecheck": "turbo typecheck",
+    "dvr": "docker volume rm supabase_db_starter supabase_config_starter supabase_storage_starter supabase_edge_runtime_starter supabase_inbucket_starter",
+    "supastart": "supabase start --ignore-health-check",
+    "supaseed": "supabase db seed generate && supabase db seed run",
+    "supareset": "supabase db reset",
+    "supareset:test": "supabase db reset && supabase test db --debug",
+    "supastop": "supabase stop && pnpm dvr",
+    "supastop:backup": "supabase stop --backup",
+    "supatest": "supabase test db",
+    "supatypes": "supabase gen types --lang=typescript --local > packages/supabase/src/types/db.ts",
+    "export:email": "pnpm --filter=@packages/email export",
     "lint-staged": "lint-staged",
     "prepare": "husky"
   },
   "devDependencies": {
-    "@tooling/typescript": "workspace:*",
     "@biomejs/biome": "^1.9.3",
+    "@tooling/typescript": "workspace:*",
     "husky": "^9.1.6",
     "lint-staged": "^15.2.10",
     "tsc-files": "^1.1.4",
     "turbo": "^2.1.3",
-    "typescript": "^5.4.5"
+    "typescript": "^5.6.3"
   },
   "packageManager": "pnpm@8.15.6",
   "engines": {

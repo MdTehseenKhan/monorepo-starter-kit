@@ -1,14 +1,16 @@
 {
   "$schema": "https://turbo.build/schema.json",
-  "ui": "tui",
+  "ui": "stream",
+  "globalDependencies": ["**/.env"],
   "tasks": {
     "topo": {
       "dependsOn": ["^topo"]
     },
     "build": {
       "env": [
-        "SUPABASE_SERVICE_KEY",
-        "SUPABASE_API_KEY",
+        "SUPABASE_URL",
+        "SUPABASE_SERVICE_ROLE_KEY",
+        "SUPABASE_ANON_KEY",
         "RESEND_API_KEY",
         "UPSTASH_REDIS_REST_URL",
         "UPSTASH_REDIS_REST_TOKEN"

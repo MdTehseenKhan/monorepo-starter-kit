@@ -10,30 +10,38 @@
     "ignore": []
   },
   "linter": {
-    "ignore": ["node_modules", "dist", "build", "public", ".next"],
+    "ignore": ["node_modules", "dist", "build", "public", ".next", ".turbo", ".data"],
     "enabled": true,
     "rules": {
       "recommended": true,
       "a11y": {
         "noSvgWithoutTitle": "off",
-        "useKeyWithClickEvents": "off"
+        "useKeyWithClickEvents": "off",
+        "useSemanticElements": "off"
       },
       "suspicious": {
-        "noExplicitAny": "warn"
+        "noExplicitAny": "warn",
+        "noConsoleLog": "warn",
+        "noArrayIndexKey": "warn"
       },
       "style": {
         "useConst": "off",
         "useTemplate": "off",
         "noParameterAssign": "warn",
         "noNonNullAssertion": "off",
-        "useExponentiationOperator": "off"
+        "useExponentiationOperator": "off",
+        "noUnusedTemplateLiteral": "warn"
       },
       "correctness": {
         "useExhaustiveDependencies": "off"
+      },
+      "complexity": {
+        "noExtraBooleanCast": "off"
       }
     }
   },
   "formatter": {
+    "ignore": ["node_modules", ".next", "packages/tsconfig", ".turbo", ".data"],
     "enabled": true,
     "indentWidth": 2,
     "indentStyle": "space",

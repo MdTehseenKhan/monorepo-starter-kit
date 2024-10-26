@@ -53,8 +53,7 @@ public/sitemap.xml
 # Trigger
 .trigger
 
-# react-email
-.react-email
-packages/email/public
-!packages/email/public/.gitkeep
-!packages/email/.react-email/.gitkeep
+# Typesense
+.typesense
+
+.cursorrules

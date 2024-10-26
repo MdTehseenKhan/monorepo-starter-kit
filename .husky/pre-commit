@@ -1,5 +1,5 @@
 echo '\n 🚀 Committing the staged changes...\n'
 
-npm run lint-staged
+pnpm lint-staged
 
 echo '✅ Changes committed.'
